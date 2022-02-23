@@ -1,0 +1,6 @@
+<div class="card card-container" >
+    <ng-container *ngFor="let template of notetemplate" >
+        <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{data:note}">
+        </ng-template>
+    </ng-container>
+  </div>

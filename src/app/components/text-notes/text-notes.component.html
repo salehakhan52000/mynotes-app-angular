@@ -1,0 +1,71 @@
+<!-- <table class="table">
+    <thead class="thead-dark">
+
+    </thead>
+</table> -->
+
+<div class="m-2">
+  <h2 class="text-center mb-4 note-title">Text Notes</h2>
+
+  <app-list-items
+    *ngIf="showList"
+    [headings]="headings"
+    [colsTemplate]="[titleNotes, descNotes, actionNotes]"
+    [notes]="notes"
+  >
+  </app-list-items>
+
+  <app-list-item
+    *ngIf="!showList"
+    [headings]="headings"
+    [notetemplate]="[title, desc]"
+    [note]="note"
+  >
+  </app-list-item>
+
+  <div class="text-center">
+    <button *ngIf="!showList" class="btn btn-primary" (click)="toggleShowList()">
+    Go Back
+  </button>
+  </div>
+  
+  <div class="text-center">
+    <a *ngIf="showList" routerLink="add-text-note">
+      <button class="btn btn-primary">Add Note</button>
+    </a>
+  </div>
+</div>
+
+<ng-template #titleNotes let-data="data">
+  <td class="col-md-2">{{ data.title }}</td>
+</ng-template>
+
+<ng-template #descNotes let-data="data">
+  <td class="col-md-6">{{ data.desc }}</td>
+</ng-template>
+
+<ng-template #actionNotes let-data="data">
+  <td class="col-md-4 text-center">
+    <button class="btn btn-success m-1" (click)="getOneNote(data.id)">
+      View
+    </button>
+    <button class="btn btn-primary m-1" (click)="editNote(data.id)">
+      Edit
+    </button>
+    <button class="btn btn-danger m-1" (click)="removeNote(data.id)">
+      Delete
+    </button>
+  </td>
+</ng-template>
+
+<ng-template #title let-data="data">
+  <div class="card-body border-bottom">
+    <h5 class="card-title note-title">{{ data.title }}</h5>
+  </div>
+</ng-template>
+
+<ng-template #desc let-data="data">
+  <p class="card-text p-2 mt-2">
+    {{ data.desc }}
+  </p>
+</ng-template>

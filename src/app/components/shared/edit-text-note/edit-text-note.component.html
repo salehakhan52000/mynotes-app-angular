@@ -1,0 +1,42 @@
+<form
+  [formGroup]="noteForm"
+  class="border form-container"
+  (ngSubmit)="editNote()"
+>
+  <div class="form-group row">
+    <label for="title" class="col-sm-2 col-form-label">Title:</label>
+    <div class="col-sm-10">
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        formControlName="title"
+        #title
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="desc" class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+      <textarea
+        class="form-control"
+        id="desc"
+        formControlName="desc"
+        #desc
+      >
+      </textarea>
+    </div>
+  </div>
+  <div class="form-group row red">
+    <div class="col-sm-2"></div>
+    <div
+      class="col-sm-10"
+      *ngIf="noteForm.controls.title.errors || noteForm.controls.desc.errors"
+    >
+      <p class="text-danger mt-1">Please input the title and description for the note</p>
+    </div>
+  </div>
+  <div class="text-center mt-4">
+    <button type="submit" [disabled]="!noteForm.valid">Edit Note</button>
+  </div>
+</form>

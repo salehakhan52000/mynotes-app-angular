@@ -1,0 +1,49 @@
+.note-title{
+    color: #5e88a0;
+    font-weight: 700;
+}
+
+.card-container {
+  max-width: 70%;
+  margin: 3rem auto;
+}
+
+.form-container {
+  max-width: 70%;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.note-img {
+  width: 5rem;
+  height: 5rem;
+  font-size: small;
+}
+
+.home-img {
+  position: relative;
+  display: flex;
+  img {
+    margin: 3rem auto;
+    width: 90%;
+  }
+
+  p {
+    position: absolute;
+    top: 35%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+  }
+}
+
+.disclaimer{
+  font-size: small;
+}
+
+a:hover{
+  color: grey !important
+}

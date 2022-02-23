@@ -1,0 +1,31 @@
+<table class="table">
+    <thead>
+      <tr>
+        <!-- <th class="col-md-2">Title</th>
+        <th class="col-md-6">Description</th>
+        <th class="col-md-4">Action</th> -->
+        <th class="text-center" *ngFor="let heading of headings">
+            {{heading}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr *ngFor="let eachNote of notes">
+        <td class="col-md-2">{{ eachNote.title }}</td>
+        <td class="col-md-6">{{ eachNote.desc }}</td>
+        <td class="col-md-4">
+            <button class="btn btn-success m-1" (click)="getOneNote(eachNote.id)">View </button>
+            <button class="btn btn-primary m-1">Edit </button>
+            <button class="btn btn-danger m-1">Delete </button>
+        </td>
+      </tr> -->
+      <tr *ngFor="let eachNote of notes">
+          <ng-container *ngFor="let colTemplate of colsTemplate">
+              <ng-template [ngTemplateOutlet]="colTemplate" [ngTemplateOutletContext]="{data:eachNote}">
+              </ng-template>
+            </ng-container>
+      </tr>
+    </tbody>
+  </table>
+
+ 
